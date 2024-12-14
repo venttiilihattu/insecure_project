@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User's Notes</title>
+</head>
+<body>
+    <h1>User's Notes</h1>
+    <ul>
+        {% for note in notes %}
+            <li><strong>{{ note.title }}</strong>: {{ note.content }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Posts</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <ul>
+        {% for title, content in results %}
+            <li><strong>{{ title }}</strong>: {{ content }}</li>
+        {% endfor %}
+    </ul>
+    <form method="get">
+        <input type="text" name="q" placeholder="Search by title">
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>

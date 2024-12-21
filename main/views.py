@@ -80,14 +80,14 @@ def search_posts(request):
 
 def protected_page(request):
     # Vulnerable
-    secret_data = "This is sensitive data that should only be available to authenticated users!"
-    return render(request, 'protected.html', {'data': secret_data})
+    sensitive_notes = Note.objects.all()
+    return render(request, 'protected.html', {'notes': sensitive_notes})
 
-# Fix
-#
+# Fix:
 # from django.contrib.auth.decorators import login_required
 #
 # @login_required
 # def protected_page(request):
-#     secret_data = "This is sensitive data that should only be available to authenticated users!"
-#     return render(request, 'protected.html', {'data': secret_data})
+#     sensitive_notes = Note.objects.filter(owner=request.user)
+#     return render(request, 'protected.html', {'notes': sensitive_notes})
+

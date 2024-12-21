@@ -3,7 +3,8 @@ from .models import Note
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.db import connection
-
+from django.contrib.auth.decorators import login_required
+import os
 
 def user_notes(request, user_id):
     # Vulnerable
@@ -48,7 +49,6 @@ def sensitive_view(request):
 
 # Fix
 #
-# import os
 # SECRET_API_KEY = os.environ.get('API_KEY', 'fallback-key-if-not-set')
 #
 # def sensitive_view(request):
@@ -84,7 +84,6 @@ def protected_page(request):
     return render(request, 'protected.html', {'notes': sensitive_notes})
 
 # Fix:
-# from django.contrib.auth.decorators import login_required
 #
 # @login_required
 # def protected_page(request):

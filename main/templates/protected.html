@@ -4,7 +4,11 @@
     <title>Protected Page</title>
 </head>
 <body>
-    <h1>Protected Content</h1>
-    <p>{{ data }}</p>
+    <h1>Protected Notes</h1>
+    <ul>
+        {% for note in notes %}
+            <li><strong>{{ note.title }}</strong>: {{ note.content }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
